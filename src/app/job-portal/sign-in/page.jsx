@@ -33,7 +33,7 @@ export default function JobPortalSignInPage() {
           <SignIn
             appearance={{
               elements: {
-                formButtonPrimary: "bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-bold py-3 hover:scale-105 transition-all duration-300"
+                formButtonPrimary: "bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-bold py-3  hover:scale-105 transition-all duration-300"
               }
             }}
             redirectUrl="/job-portal"
