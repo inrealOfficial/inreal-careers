@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --primary-background: #000000;
+    --primary-foreground: #ffffff;
+    --primary-light: #1a1a1a;
+    --primary-dark: #000000;
+
+    /* Secondary Colors */
+    --secondary-background: #101727;
+    --secondary-foreground: #99a1ae;
+    --secondary-light: #1d2838;
+    --secondary-dark: #0a0f1a;
+
+    /* Accent Colors */
+    --accent-color: #ffffff;
+    --accent-foreground: #000000;
+    --accent-light: #f5f5f5;
+    --accent-dark: #e0e0e0;
+
+    /* Border Colors */
+    --border-primary: #1d2838;
+    --border-secondary: #99a1ae;
+    --border-light: #2a3441;
+    --border-dark: #0f1419;
+
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #99a1ae;
+    --text-muted: #d0d5db;
+  }
+}
+
+@layer utilities {
+  /* Background Color Utilities */
+  .bg-primary-black {
+    background-color: var(--primary-background);
+  }
+
+  .bg-primary-light {
+    background-color: var(--primary-light);
+  }
+
+  .bg-secondary-dark {
+    background-color: var(--secondary-background);
+  }
+
+  .bg-secondary-light {
+    background-color: var(--secondary-light);
+  }
+
+  .bg-accent-white {
+    background-color: var(--accent-color);
+  }
+
+  /* Text Color Utilities */
+  .text-primary-white {
+    color: var(--text-primary);
+  }
+
+  .text-secondary-gray {
+    color: var(--text-secondary);
+  }
+
+  .text-muted {
+    color: var(--text-muted);
+  }
+
+  /* Border Color Utilities */
+  .border-primary {
+    border-color: var(--border-primary);
+  }
+
+  .border-secondary {
+    border-color: var(--border-secondary);
+  }
+
+  /* Animation Utilities */
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-blue {
+    animation: pulseBlue 2s infinite;
+  }
+
+  /* Animation Delays */
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes pulseBlue {
+    0% {
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+    }
+  }
+}
