@@ -10,6 +10,11 @@ const faqs = [
     answer: "After sign in,please Browse open positions, click 'Apply Now', and fill out the application form. Our team will review your application and contact you if you’re shortlisted."
   },
   {
+  question: "How to Submit Resume/CV?",
+  answer: "Upload your resume to Google Drive, click \"Share\" → \"Anyone with the link can view\", and paste that link here."
+  },
+
+  {
     question: "Can I apply for multiple positions?",
     answer: "Yes, you can apply for as many positions as you are qualified for. Please submit a separate application for each role."
   },

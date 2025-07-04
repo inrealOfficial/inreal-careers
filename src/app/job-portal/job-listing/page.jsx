@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SignedIn, SignedOut, useUser } from '@clerk/nextjs';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 
 const departments = ['all', 'Engineering', 'AI/ML', 'Infrastructure', 'Design'];
-const jobTypes = ['all', 'Full-time', 'Contract', 'Internship'];
+const jobTypes = ['all', 'Full-time', 'Internship'];
 
 const jobs = [
   {
@@ -22,6 +22,14 @@ const jobs = [
     summary: 'Lead the development of scalable SaaS platforms using React, Node.js, and cloud technologies.',
     tags: ['React', 'Node.js', 'AWS', 'MongoDB', 'TypeScript'],
     posted: '2 days ago',
+    description: `As a Senior Full Stack Developer, you will lead the development of scalable SaaS platforms using React, Node.js, and cloud technologies.`,
+    requirements: [
+      '5+ years experience in full stack development',
+      'Expertise in React, Node.js and Next.js',
+      'Experience with AWS and MongoDB',
+      'Strong TypeScript skills',
+      'Leadership and mentoring experience'
+    ]
   },
   {
     id: 2,
@@ -34,6 +42,13 @@ const jobs = [
     summary: 'Craft beautiful, performant UIs with React and Tailwind CSS.',
     tags: ['React', 'TypeScript', 'Tailwind', 'Next.js'],
     posted: '1 week ago',
+    description: `As a Frontend Developer, you will craft beautiful, performant UIs with React and Tailwind CSS.`,
+    requirements: [
+      '3+ years experience in frontend development',
+      'Proficient in React and TypeScript',
+      'Experience with Tailwind CSS and Next.js',
+      'Strong eye for design and UX'
+    ]
   },
   {
     id: 3,
@@ -46,6 +61,13 @@ const jobs = [
     summary: 'Design and build scalable backend services and APIs.',
     tags: ['Node.js', 'Python', 'PostgreSQL', 'Redis'],
     posted: '3 days ago',
+    description: `As a Backend Engineer, you will design and build scalable backend services and APIs.`,
+    requirements: [
+      '3+ years experience in backend development',
+      'Strong Node.js and Python skills',
+      'Experience with PostgreSQL and Redis',
+      'API design and implementation experience'
+    ]
   },
   {
     id: 4,
@@ -58,10 +80,17 @@ const jobs = [
     summary: 'Build and deploy AI-powered features for next-gen SaaS products.',
     tags: ['Python', 'PyTorch', 'LangChain', 'AWS'],
     posted: 'Just now',
+    description: `As an ML/LLM Engineer, you will build and deploy AI-powered features for next-gen SaaS products.`,
+    requirements: [
+      '4+ years experience in ML/AI',
+      'Proficient in Python and PyTorch',
+      'Experience with LangChain and AWS',
+      'LLM deployment experience'
+    ]
   },
   {
     id: 5,
-    title: 'AI Research Scientist',
+    title: 'AI Engineer',
     location: 'Remote',
     type: 'Full-time',
     salary: '$140K - $200K USD',
@@ -70,6 +99,13 @@ const jobs = [
     summary: 'Lead research initiatives in machine learning and artificial intelligence.',
     tags: ['Deep Learning', 'NLP', 'Research', 'PyTorch'],
     posted: '5 days ago',
+    description: `As an AI Research Scientist, you will lead research initiatives in machine learning and artificial intelligence.`,
+    requirements: [
+      '5+ years experience in AI research',
+      'Deep Learning and NLP expertise',
+      'Strong publication record',
+      'Experience with PyTorch'
+    ]
   },
   {
     id: 6,
@@ -82,6 +118,12 @@ const jobs = [
     summary: 'Lead our cloud infrastructure and DevOps practices.',
     tags: ['AWS', 'Kubernetes', 'Terraform', 'CI/CD'],
     posted: '1 day ago',
+    description: `As a Senior DevOps Engineer, you will lead our cloud infrastructure and DevOps practices.`,
+    requirements: [
+      '5+ years experience in DevOps',
+      'Expertise in AWS and Kubernetes',
+      'Experience with Terraform and CI/CD pipelines'
+    ]
   },
   {
     id: 7,
@@ -94,6 +136,12 @@ const jobs = [
     summary: 'Ensure reliability and performance of our cloud infrastructure.',
     tags: ['Linux', 'Monitoring', 'AWS', 'Docker'],
     posted: '4 days ago',
+    description: `As a Site Reliability Engineer, you will ensure reliability and performance of our cloud infrastructure.`,
+    requirements: [
+      '3+ years experience in SRE or DevOps',
+      'Strong Linux and AWS skills',
+      'Experience with Docker and monitoring tools'
+    ]
   },
   {
     id: 8,
@@ -106,19 +154,15 @@ const jobs = [
     summary: 'Shape the future of our product through innovative design solutions.',
     tags: ['Figma', 'UI/UX', 'Design Systems'],
     posted: '2 weeks ago',
+    description: `As a Senior Product Designer, you will shape the future of our product through innovative design solutions.`,
+    requirements: [
+      '5+ years experience in product design',
+      'Expertise in Figma and UI/UX',
+      'Experience with design systems'
+    ]
   },
-  {
-    id: 9,
-    title: 'React Native Developer',
-    location: 'Remote',
-    type: 'Contract',
-    salary: '$80-100/hour',
-    experience: '3+ years',
-    department: 'Engineering',
-    summary: 'Develop cross-platform mobile applications using React Native.',
-    tags: ['React Native', 'iOS', 'Android', 'Redux'],
-    posted: '3 days ago',
-  },
+
+
   {
     id: 10,
     title: 'Software Development Intern',
@@ -130,6 +174,12 @@ const jobs = [
     summary: 'Learn and contribute to real-world projects using modern web technologies.',
     tags: ['React', 'JavaScript', 'Node.js'],
     posted: '1 week ago',
+    description: `As a Software Development Intern, you will learn and contribute to real-world projects using modern web technologies.`,
+    requirements: [
+      'Currently pursuing a degree in Computer Science or related field',
+      'Familiarity with React and Node.js',
+      'Eagerness to learn and grow'
+    ]
   },
   {
     id: 11,
@@ -142,6 +192,12 @@ const jobs = [
     summary: 'Work on cutting-edge AI/ML projects and research initiatives.',
     tags: ['Python', 'ML', 'Deep Learning'],
     posted: '3 days ago',
+    description: `As an ML/AI Research Intern, you will work on cutting-edge AI/ML projects and research initiatives.`,
+    requirements: [
+      'Currently pursuing a degree in Computer Science, AI, or related field',
+      'Familiarity with Python and ML concepts',
+      'Interest in research and innovation'
+    ]
   },
   {
     id: 12,
@@ -152,6 +208,13 @@ const jobs = [
     department: 'Design',
     summary: 'Collaborate with the design team to create intuitive and visually appealing user experiences.',
     tags: ['Figma', 'UI/UX', 'Prototyping'],
+    posted: '2 weeks ago',
+    description: `As a UI/UX Design Intern, you will collaborate with the design team to create intuitive and visually appealing user experiences.`,
+    requirements: [
+      'Currently pursuing a degree in Design or related field',
+      'Familiarity with Figma and UI/UX principles',
+      'Strong portfolio or sample work'
+    ]
   },
 ];
 
@@ -160,20 +223,7 @@ export default function JobListPage() {
   const [filter, setFilter] = useState('all');
   const [departmentFilter, setDepartmentFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedJob, setSelectedJob] = useState(null);
-  const [formStatus, setFormStatus] = useState('');
-  const { user } = useUser();
-
-  const [applyForm, setApplyForm] = useState({
-    fullName: '',
-    email: '',
-    experience: '',
-    education: '',
-    resume: null,
-    additionalInfo: '',
-  });
-
-  const goToSignIn = () => router.push('/job-portal/sign-in');
+  const [modalJob, setModalJob] = useState(null);
 
   const filteredJobs = jobs.filter((job) => {
     const matchesType = filter === 'all' || job.type === filter;
@@ -183,6 +233,8 @@ export default function JobListPage() {
       job.tags.some((tag) => tag.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesType && matchesDepartment && matchesSearch;
   });
+
+  const goToSignIn = () => router.push('/job-portal/sign-in');
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-blue-950">
@@ -272,8 +324,7 @@ export default function JobListPage() {
                         className={`px-3 py-1 rounded-full text-xs font-semibold ${
                           job.type === 'Internship'
                             ? 'bg-purple-500/10 text-purple-400 border border-purple-500/20'
-                            : job.type === 'Contract'
-                            ? 'bg-green-500/10 text-green-400 border border-green-500/20'
+                            
                             : 'bg-blue-500/10 text-blue-400 border border-blue-500/20'
                         }`}
                       >
@@ -292,21 +343,78 @@ export default function JobListPage() {
                     </div>
 
                     <button
-                      onClick={() => router.push(`/job-portal/job-application?jobId=${job.id}`)}
-                      className="w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium 
-                        hover:from-blue-600 hover:to-purple-600 transform hover:scale-[1.02] transition-all duration-300
-                        flex items-center justify-center gap-2"
+                      onClick={() => setModalJob(job)}
+                      className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium 
+                        hover:from-blue-700 hover:to-purple-700 transform hover:scale-[1.02] transition-all duration-300
+                        flex items-center justify-center gap-2 shadow-lg"
                     >
-                      <span>Apply Now</span>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
+                      <span>View Description</span>
+                   
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                     
                     </button>
                   </div>
                 </motion.div>
               ))}
             </div>
           </section>
+
+          {/* Modal Overlay */}
+          <AnimatePresence>
+            {modalJob && (
+              <motion.div
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <motion.div
+                  initial={{ scale: 0.95, y: 40, opacity: 0 }}
+                  animate={{ scale: 1, y: 0, opacity: 1 }}
+                  exit={{ scale: 0.95, y: 40, opacity: 0 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+                  className="relative w-full max-w-xl mx-auto bg-gradient-to-br from-gray-900 via-gray-800 to-blue-950 rounded-2xl shadow-2xl p-8 border border-purple-700"
+                >
+                  <button
+                    onClick={() => setModalJob(null)}
+                    className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors text-2xl"
+                    aria-label="Close"
+                  >
+                    &times;
+                  </button>
+                  <div className="mb-4 flex items-center gap-4">
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                      {modalJob.type}
+                    </span>
+                    <span className="text-gray-400 text-sm">{modalJob.location}</span>
+                    <span className="text-gray-400 text-sm">{modalJob.salary}</span>
+                  </div>
+                  <h2 className="text-2xl font-bold text-white mb-2">{modalJob.title}</h2>
+                  <p className="text-purple-300 font-medium mb-2">{modalJob.department}</p>
+                  <p className="text-gray-300 mb-4">{modalJob.description}</p>
+                  <h4 className="font-semibold text-white mb-1">Requirements:</h4>
+                  <ul className="list-disc list-inside mb-4 text-gray-200">
+                    {modalJob.requirements.map((req, i) => (
+                      <li key={i}>{req}</li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {modalJob.tags.map((tag) => (
+                      <span key={tag} className="px-2 py-1 bg-gray-800/50 rounded-md text-xs text-gray-300">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => router.push(`/job-portal/job-application?jobId=${modalJob.id}`)}
+                    className="w-full px-6 py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 mt-2"
+                  >
+                    Apply Now
+                  </button>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </main>
       </SignedIn>
 
