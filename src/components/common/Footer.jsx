@@ -26,11 +26,9 @@ const Footer = () => {
           <div className="w-full">
             <h4 className="text-white font-bold text-sm uppercase mb-6">About us</h4>
             <ul className="space-y-4">
-              <li>
-                 <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy</Link>
-              </li>
-              <li><Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms</Link></li>
-              <li><Link href="/sitemap" className="text-gray-400 hover:text-white text-sm transition-colors">Sitemap</Link></li>
+              <li> privacy </li>
+              <li>Terms</li>
+              <li>Sitemap</li>
              
             </ul>
           </div>
@@ -42,7 +40,7 @@ const Footer = () => {
               <li><Link href="/job-portal/job-listing" className="text-gray-400 hover:text-white transition-colors block">All Job</Link></li>
               <li><Link href="/job-portal/job-application" className="text-gray-400 hover:text-white transition-colors block">Apply</Link></li>
               <li><Link href="/job-portal/faq" className="text-gray-400 hover:text-white transition-colors block">FAQ</Link></li>  
-            </ul>
+          </ul>
           </div>
 
           {/* Contact Info */}

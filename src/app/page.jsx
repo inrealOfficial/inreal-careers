@@ -66,7 +66,7 @@ export default function LandingPage() {
       >
         <span className="text-white">Career Paths at </span>
         <span className="relative">
-          <span className="bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
             Inreal
           </span>
           <span className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent animate-shimmer"></span>

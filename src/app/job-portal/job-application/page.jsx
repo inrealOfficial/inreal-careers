@@ -436,29 +436,7 @@ const handleChange = (e) => {
         </div>
       </SignedOut>
 
-       {/* Quick Links Section */}
-      <section className="bg-gradient-to-b from-gray-900 via-black to-black py-12">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Job Portal Quick Links</h2>
-            <p className="text-gray-400">Navigate to all job portal features:</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            <Button onClick={goToJobs} className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-bold hover:scale-105 transition-all duration-300">
-              View All Jobs
-            </Button>
-            <Button onClick={goToApply} className="px-6 py-3 bg-white/5 border border-gray-700 text-white rounded-lg hover:bg-white/10 transition-all duration-300">
-              Apply Now
-            </Button>
-            <Button onClick={goToFAQ} className="px-6 py-3 bg-white/5 border border-gray-700 text-white rounded-lg hover:bg-white/10 transition-all duration-300">
-              FAQ
-            </Button>
-            <Button onClick={goToHome} className="px-6 py-3 bg-white/5 border border-gray-700 text-white rounded-lg hover:bg-white/10 transition-all duration-300">
-              Job Portal Home
-            </Button>
-          </div>
-        </div>
-      </section>
+      
 
       <Footer />
 
