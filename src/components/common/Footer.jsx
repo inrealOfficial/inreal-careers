@@ -16,10 +16,12 @@ const Footer = () => {
               We architect sophisticated digital ecosystems that drive business transformation.
             </p>
             <div className="flex space-x-6">
-              <Image src="/img_vector.svg" alt="Social" width={24} height={24} className="cursor-pointer hover:opacity-80 transition-opacity" />
-              <Image src="/img_link_svg.svg" alt="Social" width={24} height={24} className="cursor-pointer hover:opacity-80 transition-opacity" />
-              <Image src="/img_link_svg_blue_gray_300.svg" alt="Social" width={24} height={24} className="cursor-pointer hover:opacity-80 transition-opacity" />
+              <Link href="https://www.linkedin.com/company/inrealofficial/" target="_blank" rel="noopener noreferrer"><Image src="/img_vector.svg" alt="Social" width={24} height={24} className="cursor-pointer hover:opacity-80 transition-opacity" />
+              </Link>
+              <Link href="https://github.com/inrealOfficial" target="_blank" rel="noopener noreferrer"> <Image src="/img_link_svg_blue_gray_300.svg" alt="Social" width={24} height={24} className="cursor-pointer hover:opacity-80 transition-opacity" />
+            </Link>
             </div>
+           
           </div>
           
           {/* Services */}
