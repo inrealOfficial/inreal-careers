@@ -1,13 +1,14 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
+// Replace this with Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBV4ZumWT1MKTMbKQ0TrbEvnxVkb3zOk2I",
-  authDomain: "inreal-cd9de.firebaseapp.com",
-  projectId: "inreal-cd9de",
-  storageBucket: "inreal-cd9de.appspot.com",
-  messagingSenderId: "297668791578",
-  appId: "1:297668791578:web:0ad5414ae33c61f23a70a3"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
 };
 
 // Initialize Firebase
